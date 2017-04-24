@@ -1,0 +1,13 @@
+click==6.7
+Flask==0.12.1
+Flask-SocketIO==2.8.6
+iptools==0.6.1
+itsdangerous==0.24
+Jinja2==2.9.6
+MarkupSafe==1.0
+python-engineio==1.4.0
+python-socketio==1.7.4
+ruamel.ordereddict==0.4.9
+ruamel.yaml==0.14.9
+six==1.10.0
+Werkzeug==0.12.1

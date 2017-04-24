@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script src="static/js/application.js"></script>
+    <script src="static/js/validations.js"></script>
+    <script src="static/js/navbar.js"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/application.css">
+</head>
+<body>
+<div class="jumbotron">
+    <h1>Brocade HW-VTEP Appliance</h1>
+</div>
+
+
+
+<div class="container">
+<div id="navbar">
+    <div id="holder">
+        <button class="tablinks" id="day0">Day0</button>
+        <button class="tablinks" id="day1">Day1</button>
+    </div>
+</div>
+<div id="day0_content">
+    <div id='instructions'>
+        <font size=4>
+            Setting up HW-VTEP is now easy...
+            <ul>
+                <li>Enter the required configuration values.</li>
+                <li>Submit the configuration</li>
+                <li>Click Run</li>
+            </ul>
+        </font>
+    </div>
+    
+	<div class ="col-md-7">
+    <h3>INPUTS</h3>
+    <div class ="inputs" id="inputs">
+        <div class ="button_wrapper" id="button_wrapper">
+        <button type="button" class="btn btn-primary" id="submit">Submit Configurations</button>
+		<button type="button" class="btn btn-default" id="run" disabled>Run Workflow</button>
+        </div>
+        
+        
+        
+        <div class="device_wrapper" id="vcs_wrapper">
+        <h4>VCS Configurations.</h4>
+        <div class="device_wrapper_internal">
+        <input id="vip_mask" type="text" class="form-control" placeholder="VCS Virtual IP With Netmask" data-toggle="tooltip" title="VCS Virtual IP With Netmask. Ex: 10.254.4.110/20">
+        <input id="mgmt_ip1" type="text" class="form-control" placeholder="Rbridge 1 Management IP" data-toggle="tooltip" title="Rbridge 1 Management IP. Ex. 10.254.4.100">
+        <input id="mgmt_ip2" type="text" class="form-control" placeholder="Rbridge 2 Management IP" data-toggle="tooltip" title="Rbridge 2 Management IP. Ex. 10.254.4.102">
+        <input id="username" type="text" class="form-control" placeholder="VDX Username" list="username_dl" data-toggle="tooltip" title="Login user name. Ex. admin">
+        <input id="password" type="password" class="form-control" placeholder="VDX Password"   data-toggle="tooltip" title="Login password">
+        <input id="intf_ip" type="text" class="form-control" placeholder="Loopback Interface IP"  list="intf_ip_dl" data-toggle="tooltip" title="Loopback Interface IP. Ex: 2.2.2.1/32">
+        <input id="vlan" type="text" class="form-control" placeholder="VLAN ID"  list="vlan_dl" data-toggle="tooltip" title="VLAN ID.">
+        <input id="ve_vlan" type="text" class="form-control" placeholder="Transport VLAN">
+        <input id="switch_port1" type="text" class="form-control" placeholder="Switch Port on Rbridge1">
+        <input id="switch_port2" type="text" class="form-control" placeholder="Switch Port on Rbridge2">
+        <input id="ve_ip" type="text" class="form-control" placeholder="Ve Interface IP with Mask"  data-toggle="tooltip" title="Ve Interface IP with Mask. Ex: 172.168.100.1/24">
+        <input id="vcenter_user" type="text" class="form-control" placeholder="VCenter Username"  list="vcenter_user_dl" data-toggle="tooltip" title="vCenter login user">
+        <input id="vcenter_pass" type="password" class="form-control" placeholder="VCenter Password"  data-toggle="tooltip" title="vCenter login password">
+        <input id="vcenter_url" type="url" class="form-control" placeholder="VCenter URL"  list="vcenter_url_dl" data-toggle="tooltip" title="vCenter access URL. Ex: https://10.254.5.101" required />
+        
+        <input id="vcs_id" type="text" class="form-control" placeholder="VCS ID" data-toggle="tooltip" title="VCS ID Ex: 100" value="100" required />
+        <input id="rbridge_id1" type="text" class="form-control" placeholder="Rbridge 1 ID" data-toggle="tooltip" title="Rbridge 1 ID Ex: 101" value="101" required />
+        <input id="rbridge_id2" type="text" class="form-control" placeholder="Rbridge 2 ID" data-toggle="tooltip" title="Rbridge 2 ID Ex: 102" value="102" required />
+        <input id="intf_name" type="text" class="form-control" placeholder="Interface Name" data-toggle="tooltip" title="Interface Name Ex: 1" value="1" required />
+        <input id="intf_type" type="text" class="form-control" placeholder="Interface type"  list="intf_type_dl" data-toggle="tooltip" title="Type of interface. Ex: loopback" value="loopback" required>
+        <input id="overlay_gateway_name" type="text" class="form-control" placeholder="Overlay Gateway Name" data-toggle="tooltip" title="Overlay Gateway Name Ex: gw100" value="gw100" required />
+        </div>
+        </div>
+        
+        
+        
+        
+        <div class="device_wrapper" id="nsx_wrapper">
+        <h4>NSX Configurations</h4>
+        <div class="device_wrapper_internal">
+        <input id="nsx_cnt_ip" type="text" class="form-control" placeholder="NSX Controller IP"  data-toggle="tooltip" title="NSX Controller IP.">
+        <input id="nsx_mgr_ip" type="text" class="form-control" placeholder="NSX Manager IP"  data-toggle="tooltip" title="NSX Manager IP.">
+        <input id="nsx_mgr_user" type="text" class="form-control" placeholder="NSX Manager User"  list="nsx_mgr_user_dl" data-toggle="tooltip" title="NSX Manager User.">
+        <input id="nsx_mgr_pass" type="password" class="form-control" placeholder="NSX Manager Password"  data-toggle="tooltip" title="NSX Manager Password.">
+        <input id="lswitch_name" type="text" class="form-control" placeholder="Logical Switch Name"  list="lswitch_name_dl" data-toggle="tooltip" title="Logical Switch Name">
+        <!--<input id="tz" type="text" class="form-control" placeholder="Transport Zone"  data-toggle="tooltip" title="Logical Switch Transport Zone. Ex. TZ1">-->
+        
+        <input id="nsx_cnt_name" type="text" class="form-control" placeholder="NSX Controller Name" data-toggle="tooltip" title="NSX Controller Name Ex: NSXController" value="NSXController" required />
+        <input id="nsx_cnt_port" type="text" class="form-control" placeholder="NSX Controller Port" data-toggle="tooltip" title="NSX Controller Port Ex: 6640" value="6640" required />
+        <input id="vcenter_name" type="text" class="form-control" placeholder="vCenter Name" data-toggle="tooltip" title="vCenter Name Ex: VC200" value="VC200" required />
+        <input id="vtep_name" type="text" class="form-control" placeholder="Hardware vtep name" data-toggle="tooltip" title="Hardware vtep name Ex: vtep100" value="vtep100" required />
+        <input id="port_name" type="text" class="form-control" placeholder="Logical Switch Port" data-toggle="tooltip" title="Logical Switch Port Ex: Port-12" value="Port-12" required />
+        <input id="switch_name" type="text" class="form-control" placeholder="VDX Switch Name" data-toggle="tooltip" title="VDX Switch Name Ex: VCS-100" value="VCS-100" required />
+        
+        </div>
+        </div>
+        
+        
+        <datalist id="username_dl"><option value="admin"></datalist>
+        <datalist id="intf_ip_dl"><option value="2.2.2.1/32"></datalist>
+        <datalist id="intf_type_dl"><option value="loopback"></datalist>
+        <datalist id="vlan_dl"><option value="1500"></datalist>
+        <datalist id="nsx_mgr_user_dl"><option value="admin"></datalist>
+        <datalist id="lswitch_name_dl"><option value="5005"></datalist>
+        <datalist id="vcenter_user_dl"><option value="administrator@vsphere.local"></datalist>
+        <datalist id="vcenter_url_dl"><option value="https://10.254.5.101"></datalist>
+        
+    </div>
+	</div>
+	<div class ="col-md-5" >
+        <h3>LOGS</h3>
+        <div class="logs-outer" id ="logs-outer">
+            <div id="log"></div>
+            <div class="loader" id="loader" ></div>
+        </div>
+
+</div>
+<p><a href="./dumplogs" target="_blank">Check out detailed logs.</a></p>
+</div>
+
+
+
+
+<div id="day1_content">
+    <div id='instructions'>
+        <font size=4>
+            Setting up HW-VTEP is now easy...
+            <ul>
+                <li>Enter the required configuration values.</li>
+                <li>Submit the configuration</li>
+                <li>Click Run</li>
+            </ul>
+        </font>
+    </div>
+    
+    <div class ="col-md-6">
+    <h3>INPUTS</h3>
+    <div class ="inputs" id="inputs">
+        <button type="button" class="btn btn-primary" id="submit_mappings">Configure Mappings</button>
+		<!--<button type="button" class="btn btn-default" id="run_day1" disabled>Run Workflow</button> -->
+        <div id="mapping_container" class="mapping_container">
+        
+            <input id="d1_vip" type="text" class="form-control" placeholder="VCS Virtual IP" data-toggle="tooltip" title="VCS fabric virtual IP address. This address should be in the same subnet as the management IP address.">
+            <input id="d1_username" type="text" class="form-control" placeholder="VDX Username" list="username_dl" data-toggle="tooltip" title="Login user">
+            <input id="d1_password" type="password" class="form-control" placeholder="VDX Password"   data-toggle="tooltip" title="Login password">
+            <input id="d1_overlay_gateway_name" type="text" class="form-control" placeholder="Overlay Gateway Name" data-toggle="tooltip" title="Overlay Gateway Name">
+            <input id="d1_nsx_mgr_ip" type="text" class="form-control" placeholder="NSX Manager IP"  data-toggle="tooltip" title="NSX Manager IP.">
+            <input id="d1_nsx_mgr_user" type="text" class="form-control" placeholder="NSX Manager User"  list="nsx_mgr_user_dl" data-toggle="tooltip" title="NSX Manager User.">
+            <input id="d1_nsx_mgr_pass" type="password" class="form-control" placeholder="NSX Manager Password"  data-toggle="tooltip" title="NSX Manager Password.">
+            <input id="d1_switch_name" type="text" class="form-control" placeholder="VDX Switch Name"  data-toggle="tooltip" title="Switch Name">
+            <input id="d1_hardware_gateway_name" type="text" class="form-control" placeholder="Hardware vtep name"  data-toggle="tooltip" title="Hardware Gateway Name">
+        
+            
+            <input class="mapping_inputs" id="lswitch_name_1" type="text" placeholder="Logical Switch Name"  data-toggle="tooltip" title="Hardware port will be attached to this Logical Switch">
+            <!--<input class="mapping_inputs" id="tz_1" type="text" placeholder="Transport Zone"  data-toggle="tooltip" title="Logical Switch Transport Zone. Ex. TZ1">-->
+            <input class="mapping_inputs" id="vlan_1" type="text" placeholder="VLAN ID" data-toggle="tooltip" title="VLAN id to map on VNI(VXLAN).">
+            <input class="mapping_inputs" id="port_1" type="text" placeholder="Port" data-toggle="tooltip" title="Port">
+            
+            
+        </div>
+        
+        <div>
+            <button type="button" class="btn btn-primary" id="add">+</button>
+            <button type="button" class="btn btn-primary" id="remove">-</button>
+        </div>
+    </div>
+	</div>
+	
+    <div class ="col-md-6" >
+        <h3>LOGS</h3>
+        <div class="logs-outer" id ="day1_logs-outer">
+            <div id="day1_log"></div>
+            <div class="loader" id="day1_loader" ></div>
+        </div>
+        <p><a href="./dumplogs" target="_blank">Check out detailed logs.</a></p>
+    </div>
+    
+</div>
+</div>
+
+</body>
+</html>
