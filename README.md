@@ -1,6 +1,4 @@
 # Brocade VTEP Appliance UI
-Brocade HW-VTEP Appliance UI
-
 ## Introduction
 Virtual machines (VMs) operate over a VXLAN virtual network. In many large scale data centers, VMs on VXLAN networks require access to resources hosted on physical networks which use VLAN to connect. To achieve efficient communication between VXLAN to VLAN, a separate physical VTEP device is required to perform the network translation. Brocade VDX 6740 series switches help to achieve this configuration. For more about Brocade Gateways for VMware NSX, read the Solution Brief.
 
@@ -11,7 +9,6 @@ Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway f
 * Reduce operational costs by automating switch and fabric configuration tasks
 * Ensure configuration accuracy and consistency for VDX 6740 switch deployment
 
-
 ***Components***
 </br>This appliance consist of three components 
 * UI
@@ -20,7 +17,11 @@ Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway f
  
 # Installation
 ***Prerequisites***
-* To install Brocade HW-VTEP Appliance, you need the 64-bit version of one of these Ubuntu/RHEL/CentOS versions:Ubuntu 14.04RHEL 7 / CentOS 7RHEL 6 / CentOS 6
+* To install Brocade HW-VTEP Appliance, you need the 64-bit version of one of theseUbuntu/RHEL/CentOS versions
+  * Ubuntu 14.04
+  * Ubuntu 16.04
+  * RHEL 7 / CentOS 7
+  * RHEL 6 / CentOS 6
 * StackStorm v2.2
 * Python 2.7
 * git
