@@ -19,15 +19,12 @@ Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway f
 * NSX-VTEP pack for stackstorm
 * VDX-VTEP pack for Stackstorm
  
- ***Prerequisites:***
-    1. To install Brocade HW-VTEP Appliance, you need the 64-bit version of one of these Ubuntu/RHEL/CentOS versions:
-        Ubuntu 14.04
-        Ubuntu 16.04        
-        RHEL 7 / CentOS 7
-        RHEL 6 / CentOS 6
-    2. StackStorm v2.2
-    3. Python 2.7
-    4. git
+# Installation
+***Prerequisites***
+* To install Brocade HW-VTEP Appliance, you need the 64-bit version of one of these Ubuntu/RHEL/CentOS versions:Ubuntu 14.04RHEL 7 / CentOS 7RHEL 6 / CentOS 6
+* StackStorm v2.2
+* Python 2.7
+* git
 
  * Installation Steps:
    Install vdx_vtep and nsx_vtep pack:
