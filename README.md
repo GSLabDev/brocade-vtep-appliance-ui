@@ -1,26 +1,25 @@
-# brocade-vtep-appliance-ui
+# Brocade VTEP Appliance UI
 Brocade HW-VTEP Appliance UI
 
-* Introduction
+***Introduction***
  
- Virtual machines (VMs) operate over a VXLAN virtual network. In many large scale data centers, VMs on VXLAN networks require access to resources hosted on physical networks which use VLAN to connect. To achieve efficient communication between VXLAN to VLAN, a separate physical VTEP device is required to perform the network translation. Brocade VDX 6740 series switches help to achieve this configuration. For more about Brocade Gateways for VMware NSX, read the Solution Brief.
+Virtual machines (VMs) operate over a VXLAN virtual network. In many large scale data centers, VMs on VXLAN networks require access to resources hosted on physical networks which use VLAN to connect. To achieve efficient communication between VXLAN to VLAN, a separate physical VTEP device is required to perform the network translation. Brocade VDX 6740 series switches help to achieve this configuration. For more about Brocade Gateways for VMware NSX, read the Solution Brief.
 
- Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway for VMware NSX makes configuring a hardware gateway simple, especially for teams with little to no experience with Brocade networking technology. The user simply plugs in the VDX 6740 switches, enters basic environment data into a browser-based form, and the StackStorm Integration Pack does the rest. Post installation, all VTEP management functions are carried out through the VMware NSX interface. As with all StackStorm Integration Packs, this configuration tool is community created and supported.
+Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway for VMware NSX makes configuring a hardware gateway simple, especially for teams with little to no experience with Brocade networking technology. The user simply plugs in the VDX 6740 switches, enters basic environment data into a browser-based form, and the StackStorm Integration Pack does the rest. Post installation, all VTEP management functions are carried out through the VMware NSX interface. As with all StackStorm Integration Packs, this configuration tool is community created and supported.
 
- Key Benefits
-	Reduce time to deploy a hardware gateway with pre-configured automation workflows
-	Reduce operational costs by automating switch and fabric configuration tasks
-	Ensure configuration accuracy and consistency for VDX 6740 switch deployment
+***Key Benefits***
+* Reduce time to deploy a hardware gateway with pre-configured automation workflows
+* Reduce operational costs by automating switch and fabric configuration tasks
+* Ensure configuration accuracy and consistency for VDX 6740 switch deployment
 
+
+***Components***
+</br>This appliance consist of three components 
+* UI
+* NSX-VTEP pack for stackstorm
+* VDX-VTEP pack for Stackstorm
  
- * Requirements
- 
- This appliance consist of three components 
- UI 
- NSX-VTEP pack for stackstorm
- VDX-VTEP pack for Stackstorm
- 
- * Prerequisites:
+ ***Prerequisites:***
     1. To install Brocade HW-VTEP Appliance, you need the 64-bit version of one of these Ubuntu/RHEL/CentOS versions:
         Ubuntu 14.04
         Ubuntu 16.04        
