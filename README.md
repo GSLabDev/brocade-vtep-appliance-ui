@@ -27,28 +27,28 @@ Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway f
 
 ***Installation Steps***
 * Install vdx_vtep and nsx_vtep pack
-```
-st2 pack install vdx_vtep nsx_vtep
-```
+  ```
+  st2 pack install vdx_vtep nsx_vtep
+  ```
 * Install Brocade HW-VTEP Appliance UI.
   1. Get the Brocade HW-VTEP Appliance UI source code from Github.
-```
-git clone https://github.com/GSLabDev/brocade-vtep-appliance-ui.git
-```
+    ```
+    git clone https://github.com/GSLabDev/brocade-vtep-appliance-ui.git
+    ```
   2. Install python dependencies
-```
-cd brocade-vtep-appliance-ui/
-pip install -r requirements.txt
-```
+    ```
+    cd brocade-vtep-appliance-ui/
+    pip install -r requirements.txt
+    ```
 * Start the Brocade HW-VTEP Appliance UI using CLI.
   1. Go to cloned repository of Brocade HW-VTEP Appliance UI on your local system.
- ```
- cd /<path>/<to>/<cloned>/<repo>/brocade-vtep-appliance-ui/
- ```
+     ```
+     cd /<path>/<to>/<cloned>/<repo>/brocade-vtep-appliance-ui/
+     ```
   2. Start the appliance.
- ```
- python application.py
- ```
+     ```
+     python application.py
+     ```
 * Stop the Brocade HW-VTEP Appliance UI
   * To stop the appliance just kill the process stared in above step by pressing "Ctrl C".
 
