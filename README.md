@@ -1,4 +1,4 @@
-# Brocade VTEP Appliance UI
+# Brocade HW-VTEP Appliance UI
 ## Introduction
 Virtual machines (VMs) operate over a VXLAN virtual network. In many large scale data centers, VMs on VXLAN networks require access to resources hosted on physical networks which use VLAN to connect. To achieve efficient communication between VXLAN to VLAN, a separate physical VTEP device is required to perform the network translation. Brocade VDX 6740 series switches help to achieve this configuration. For more about Brocade Gateways for VMware NSX, read the Solution Brief.
 
