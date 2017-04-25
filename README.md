@@ -26,7 +26,7 @@ Created by GS Lab, the StackStorm Integration Pack for the Brocade VCS Gateway f
 * Python 2.7
 * git
 
- * Installation Steps:
+***Installation Steps***
    Install vdx_vtep and nsx_vtep pack:
     st2 pack install vdx_vtep nsx_vtep
     
