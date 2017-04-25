@@ -44,7 +44,7 @@ def run_workflow(lswitch, vlan, port):
     """
         Execute day1 workflow which will configure VNI to VLAN mapping.
     """
-    workflow_cmd = "st2 run vdx.attach_vlan_to_gw_workflow lswitch_name=%s vlan=%s port=%s" % (lswitch, vlan, port)
+    workflow_cmd = "st2 run vdx_vtep.attach_vlan_to_gw_workflow lswitch_name=%s vlan=%s port=%s" % (lswitch, vlan, port)
     subprocess.Popen(workflow_cmd, shell=True)
     
     

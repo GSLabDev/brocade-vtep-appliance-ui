@@ -71,7 +71,7 @@ def run(message):
     socketio.emit('newline', "Reloading configs.", namespace='/submit')
     subprocess.Popen("st2ctl reload --register-configs", shell=True)
     sleep(5)
-    subprocess.Popen("st2 run vdx.configure_vdx", shell=True)
+    subprocess.Popen("st2 run vdx_vtep.configure_vdx", shell=True)
     
 @app.route('/dumplogs')
 def renderDumpLogs():
