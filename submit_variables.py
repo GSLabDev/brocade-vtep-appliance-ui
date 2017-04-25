@@ -129,10 +129,10 @@ def submit_variables(data):
         if key in nsx_params:
             nsx_dict[key] = data[key]
             
-    with open('/opt/stackstorm/configs/vdx.yaml', 'w') as outfile:
+    with open('/opt/stackstorm/configs/vdx_vtep.yaml', 'w') as outfile:
         yaml.safe_dump(vdx_dict, outfile, default_flow_style=False, explicit_start=True, indent=4)
         
-    with open('/opt/stackstorm/configs/nsx.yaml', 'w') as outfile:
+    with open('/opt/stackstorm/configs/nsx_vtep.yaml', 'w') as outfile:
         yaml.safe_dump(nsx_dict, outfile, default_flow_style=False, explicit_start=True, indent=4)
         
     return True
