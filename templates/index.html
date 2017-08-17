@@ -55,9 +55,9 @@
         <input id="password" type="password" class="form-control" placeholder="VDX Password"   data-toggle="tooltip" title="Login password">
         <input id="intf_ip" type="text" class="form-control" placeholder="Loopback Interface IP"  list="intf_ip_dl" data-toggle="tooltip" title="Loopback Interface IP. Ex: 2.2.2.1/32">
         <input id="vlan" type="text" class="form-control" placeholder="VLAN ID"  list="vlan_dl" data-toggle="tooltip" title="VLAN ID.">
-        <input id="ve_vlan" type="text" class="form-control" placeholder="Transport VLAN">
-        <input id="switch_port1" type="text" class="form-control" placeholder="Switch Port on Rbridge1">
-        <input id="switch_port2" type="text" class="form-control" placeholder="Switch Port on Rbridge2">
+        <input id="ve_vlan" type="text" class="form-control" placeholder="Transport VLAN" data-toggle="tooltip" title="Transport VLAN ID.">
+        <input id="switch_port1" type="text" class="form-control" placeholder="Switch Port on Rbridge1" data-toggle="tooltip" title="Switch Port on Rbridge1. Format: <RBridge-ID-1>/<slot>/<port>. Ex: 101/0/40. Please note that <RBridge-ID-1> should exactly be same as Rbridge 1 ID in input box below.">
+        <input id="switch_port2" type="text" class="form-control" placeholder="Switch Port on Rbridge2"  data-toggle="tooltip" title="Switch Port on Rbridge2. Format: <RBridge-ID-2>/<slot>/<port>. Ex: 102/0/40. Please note that <RBridge-ID-2> should exactly be same as Rbridge 2 ID in input box below.">
         <input id="ve_ip" type="text" class="form-control" placeholder="Ve Interface IP with Mask"  data-toggle="tooltip" title="Ve Interface IP with Mask. Ex: 172.168.100.1/24">
         <input id="vcenter_user" type="text" class="form-control" placeholder="VCenter Username"  list="vcenter_user_dl" data-toggle="tooltip" title="vCenter login user">
         <input id="vcenter_pass" type="password" class="form-control" placeholder="VCenter Password"  data-toggle="tooltip" title="vCenter login password">
@@ -127,8 +127,7 @@
             Setting up HW-VTEP is now easy...
             <ul>
                 <li>Enter the required configuration values.</li>
-                <li>Submit the configuration</li>
-                <li>Click Run</li>
+                <li>Click Configure Mappings</li>
             </ul>
         </font>
     </div>
